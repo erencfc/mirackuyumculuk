@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miraç Kuyumculuk</title>
+</head>
+<body>
+    <ul>
+        <% for( let i = 0; i < currencies.length; i++ ) { %>
+            <% console.log(currencies[i]) %> 
+            <li><%= currencies[i]['Kod']['_text'] %>: <%= currencies[i]['Alis']['_text'].substring( 0, 4)%></li>
+        <% } %>
+    </ul>
+</body>
+<style>
+    ul li {
+        color: #fff;
+    }
+    body {
+        background-color: rgb(29, 29, 29)
+    }
+</style>
+</html>

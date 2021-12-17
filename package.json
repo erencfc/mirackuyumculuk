@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "ejs": "^3.1.6",
     "express": "^4.17.2",
     "request": "^2.88.2",
     "soap": "^0.43.0",

@@ -1,47 +1,17 @@
-const request = require("request");
-const URL = "http://data.altinkaynak.com/DataService.asmx?wsdl";
+const express = require("express");
+const pageRoute = require("./routes/pageRoute");
 
-let xml = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:data="http://data.altinkaynak.com/">
-<soapenv:Header>
-   <data:AuthHeader>
-      <!--Optional:-->
-      <data:Username>AltinkaynakWebServis</data:Username>
-      <!--Optional:-->
-      <data:Password>AltinkaynakWebServis</data:Password>
-   </data:AuthHeader>
-</soapenv:Header>
-<soapenv:Body>
-   <data:GetCurrency/>
-</soapenv:Body>
-</soapenv:Envelope>`;
+const app = express();
 
-var options = {
-    url: "http://data.altinkaynak.com/DataService.asmx?wsdl",
-    method: "POST",
-    body: xml,
-    headers: {
-        "Content-Type": "text/xml;charset=UTF-8",
-        "Accept-Encoding": "gzip,deflate",
-        "Content-Length": xml.length,
-        SOAPAction: "http://data.altinkaynak.com/GetCurrency",
-    },
-};
+app.set("view engine", "ejs");
 
-var convert = require("xml-js");
+app.use(express.static("public"));
 
-let callback = (error, response, body) => {
-    if (!error && response.statusCode == 200) {
-        var xml2js = require("xml2js");
-        var parser = new xml2js.Parser({ explicitArray: false, trim: true });
-        parser.parseString(body, (err, result) => {
-            var USD =
-                result["soap:Envelope"]["soap:Body"]["GetCurrencyResponse"][
-                    "GetCurrencyResult"
-                ];
-            var result = convert.xml2json(USD, { compact: true, spaces: 4 });
-            var parsedResult = JSON.parse(result);
-            console.log(parsedResult["Kurlar"]["Kur"]);
-        });
-    }
-};
-request(options, callback);
+app.use("/", pageRoute);
+
+const PORT = process.env.PORT || 80;
+
+app.listen(PORT, (err) => {
+    if (err) console.log(err);
+    else console.log(`Server started on port ${PORT}`);
+});
