@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "express": "^4.17.2",
+    "request": "^2.88.2",
+    "soap": "^0.43.0",
+    "xml-js": "^1.6.11",
+    "xml2js": "^0.4.23"
+  },
+  "name": "mirackuyumculuk",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
