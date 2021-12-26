@@ -1,0 +1,29 @@
+<%- include('partials/_header') %>
+
+<h1 class="site-heading text-center text-faded">
+    <span class="site-heading-upper" style="margin-top: 4%">DÖVİZ</span>
+</h1>
+
+    <section class="page-section">
+        <div class="container">
+            <table class="table table-dark table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Birim</th>
+                        <th scope="col">Alış</th>
+                        <th scope="col">Satış</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for( let i = 0; i < values.length; i++ ) { %>
+                    <tr>
+                        <td><%= values[i].birim %></td>
+                        <td><%= values[i].alis %></td>
+                        <td><%= values[i].satis %></td>
+                    </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <%- include('partials/_footer') %>

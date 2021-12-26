@@ -1,0 +1,22 @@
+<%- include('partials/_header') %> 
+    
+    <title>Miraç Kuyumculuk - Ana Sayfa</title>
+    <hr style="opacity: 0; height: 50px; width: 100%;">
+    <section class="page-section clearfix">
+
+        <div class="container">
+            <div class="intro-text text-center p-5 rounded" style="margin-left: 10%; float: left;">
+                <p>USD: <%= doviz[0].alis %> TRY</p>
+                <p>EUR: <%= doviz[1].alis %> TRY</p>
+                <div class="intro-button"><a class="btn btn-primary btn-xl mt-5" href="/doviz">Döviz</a></div>
+            </div>
+
+            <div class="intro-text text-center p-5 rounded" style="margin-right: 10%; float: right;"> 
+                <p>22 Hurda: <%= altin[1].alis %> TRY</p>
+                <p>Külçe Altın: <%= altin[0].alis %> TRY</p>
+                <div class="intro-button"><a class="btn btn-primary btn-xl mt-5" href="/altin">Altın</a></div>
+            </div>
+        </div>
+        
+    </section>
+    <%- include('partials/_footer') %> 
